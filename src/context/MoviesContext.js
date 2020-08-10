@@ -3,7 +3,7 @@ import React, { useState, createContext } from 'react';
 export const MoviesContext = createContext();
 
 export const MoviesProvider = props => {
-	const [ movies, setMovies ] = useState([
+	const [ movies, setMovies ] = useReduce([
 		{
 			title: 'Harry Potter',
 			price: 10
@@ -18,9 +18,13 @@ export const MoviesProvider = props => {
 		}
 	])
 
+
+
 	return (
 		<MoviesContext.Provider value={[ movies, setMovies ]}>
 			{ props.children }
 		</MoviesContext.Provider>
 	)
 }
+
+

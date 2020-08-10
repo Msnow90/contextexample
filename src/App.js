@@ -10,6 +10,33 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Router>
+          <Navbar>
+            <Drawer></Drawer>
+          </Navbar>
+          <Switch>
+            <Route path='/'></Route>
+            <Route path='/login'></Route>
+            
+            <AuthProvider>
+              <AuthGuard>
+                
+                <DashboardProvider>
+                  
+                  <Route path='/overview'></Route>
+
+                  
+                  <Route path='/billing'></Route>
+                </DashboardProvider>
+              
+              </AuthGuard>
+            </AuthProvider>
+          </Switch>
+        </Router>
+
+
+
+
           <MoviesProvider>
             <MoviesList />
             <AddMovieForm />
